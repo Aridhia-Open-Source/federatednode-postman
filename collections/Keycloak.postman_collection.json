@@ -1,0 +1,2484 @@
+{
+	"info": {
+		"_postman_id": "188d9705-c2f0-4b36-a960-cf28747dac88",
+		"name": "Keycloak",
+		"description": "It separates KC from the rest of the FN APIs. It needs\n\n``` bash\nkubectl port-forward -n identities svc/keycloak 8081:8080\n\n ```\n\nto run as keycloak API is not reachable via nginx. Port 8081 is set to not conflict with other possible KC instances running on the host machine. The env var `base_kc_url` will be the centralized variable to dictate where to find KC.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19869940"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Create user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\":\"Fair\",\r\n    \"lastName\":\"System\", \r\n    \"email\":\"riccardocasula@aridhia.net\", \r\n    \"enabled\":\"true\", \r\n    \"username\":\"riccardocasula@aridhia.net\",\r\n    \"credentials\": [{\r\n        \"type\": \"password\",\r\n        \"temporary\": false,\r\n        \"value\": \"{{fair_password}}\"\r\n    }],\r\n    \"realmRoles\": [\"System\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test_",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Admin FN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"enabled\":\"true\", \r\n    \"username\":\"admin\",\r\n    \"credentials\": [{\r\n        \"type\": \"password\",\r\n        \"temporary\": false,\r\n        \"value\": \"{{admin_pass}}\"\r\n    }],\r\n    \"realmRoles\": [\"Super Administrator\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/FederatedNode/users",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"FederatedNode",
+										"users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test_",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign role user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\r\n    \"name\": \"Users\",\r\n\t\"id\": \"{{role_id}}\"\r\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/role-mappings/realm",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"role-mappings",
+										"realm"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test_",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove role user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\r\n    \"name\": \"Administrator\",\r\n\t\"id\": \"{{role_id}}\"\r\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/role-mappings/realm",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"role-mappings",
+										"realm"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test_",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"console.log(resp[0][\"username\"])\r",
+											"pm.environment.set(\"user_id\", resp[0][\"id\"])"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "idpAlias",
+											"value": "github",
+											"disabled": true
+										},
+										{
+											"key": "idpUserId",
+											"value": "100773423",
+											"disabled": true
+										},
+										{
+											"key": "idpUserName",
+											"value": "r-casula",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "another",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "riccardo",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"for(i in pm.response.json()){\r",
+											"\tif (resp[i][\"username\"] == \"admin\"){\r",
+											"\t\tconsole.log(resp[i][\"username\"])\r",
+											"\t\tpm.environment.set(\"user_id\", resp[i][\"id\"])\r",
+											"\t}\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\t\"id\": \"{{user_id}}\",\r\n\t\t\"username\": \"r-casula\",\r\n\t\t\"email\": \"riccardo.casula@aridhia.com\",\r\n\t\t\"emailVerified\": false,\r\n\t\t\"createdTimestamp\": 1730388949540,\r\n\t\t\"enabled\": true,\r\n\t\t\"totp\": false,\r\n\t\t\"disableableCredentialTypes\": [],\r\n\t\t\"requiredActions\": [],\r\n\t\t\"notBefore\": 0,\r\n\t\t\"access\": {\r\n\t\t\t\"manageGroupMembership\": true,\r\n\t\t\t\"view\": true,\r\n\t\t\t\"mapRoles\": true,\r\n\t\t\t\"impersonate\": true,\r\n\t\t\t\"manage\": true\r\n\t\t}\r\n\t}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "rcasula@gmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"for(i in pm.response.json()){\r",
+											"\tif (resp[i][\"username\"] == \"admin\"){\r",
+											"\t\tconsole.log(resp[i][\"username\"])\r",
+											"\t\tpm.environment.set(\"user_id\", resp[i][\"id\"])\r",
+											"\t}\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "rcasula@gmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users IdP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/federated-identity",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"federated-identity"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "admin",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set Users IdP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"userId\": \"100773423\",\r\n\t\"userName\": \"r-casula\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/federated-identity/github",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"federated-identity",
+										"github"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"type\": \"password\",\r\n\t\"temporary\": false,\r\n\t\"value\": \"{{fair_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/reset-password",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users credentials type",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"type\": \"password\",\r\n\t\"temporary\": false,\r\n\t\"value\": \"{{fair_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/users/{{user_id}}/credentials",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"users",
+										"{{user_id}}",
+										"credentials"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Roles",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"pm.environment.set(\"role_id\", resp[\"id\"])\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/roles/Users",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"roles",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test_",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User permissions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resources\": [{\r\n        \"scopes\": [\"can_exec_task\"]\r\n    }], \r\n    \"clientId\": \"{{client_id}}\", \r\n    \"userId\": \"{{user_id}}\",\r\n    \"entitlements\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/policy/evaluate",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"policy",
+										"evaluate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User permissions Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_USER_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "urn:ietf:params:oauth:grant-type:uma-ticket",
+											"type": "text"
+										},
+										{
+											"key": "audience",
+											"value": "Request hepzibha.faustina+user@aridhia.com - test118proj06101",
+											"type": "text"
+										},
+										{
+											"key": "response_mode",
+											"value": "decision",
+											"type": "text"
+										},
+										{
+											"key": "permission",
+											"value": "b6aceb6a-533a-4562-9418-bd04b800b319#can_exec_task",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"realms",
+										"{{realm}}",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Clients",
+					"item": [
+						{
+							"name": "Get clients",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"\t\r",
+											"for (i in resp) {\r",
+											"\tconsole.log(resp[i][\"clientId\"])\t\r",
+											"}\r",
+											"\t\r",
+											"//pm.environment.set(\"client_id\", resp[0][\"id\"])\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients?clientId=global",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "first",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "clientId",
+											"value": "realm-management",
+											"disabled": true
+										},
+										{
+											"key": "clientId",
+											"value": "global"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get client by id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"resp = pm.response.json()\r",
+											"\t\r",
+											"pm.environment.set(\"client_id\", resp[\"id\"])\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "first",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "clientId",
+											"value": "realm-management",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get client secret",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/client-secret",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"client-secret"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update client secret",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\": \"c66bffa5-11d8-4302-a8b3-76fec58c8e34\",\r\n\t\"clientId\": \"global\",\r\n\t\"name\": \"Global\",\r\n\t\"description\": \"General access definition for endpoints\",\r\n\t\"rootUrl\": \"\",\r\n\t\"adminUrl\": \"\",\r\n\t\"baseUrl\": \"/\",\r\n\t\"surrogateAuthRequired\": false,\r\n\t\"enabled\": true,\r\n\t\"alwaysDisplayInConsole\": false,\r\n\t\"clientAuthenticatorType\": \"client-secret\",\r\n\t\"secret\": \"RNIdMDMNuZ0AtxWgZaLKhI0J\",\r\n\t\"redirectUris\": [\r\n\t\t\"/*\"\r\n\t],\r\n\t\"webOrigins\": [\r\n\t\t\"http://keycloak.identities.svc.cluster.local\",\r\n\t\t\"phems-federatednode.net\"\r\n\t],\r\n\t\"notBefore\": 0,\r\n\t\"bearerOnly\": false,\r\n\t\"consentRequired\": false,\r\n\t\"standardFlowEnabled\": true,\r\n\t\"implicitFlowEnabled\": false,\r\n\t\"directAccessGrantsEnabled\": true,\r\n\t\"serviceAccountsEnabled\": true,\r\n\t\"authorizationServicesEnabled\": true,\r\n\t\"publicClient\": false,\r\n\t\"frontchannelLogout\": true,\r\n\t\"protocol\": \"openid-connect\",\r\n\t\"attributes\": {\r\n\t\t\"post.logout.redirect.uris\": \"+\",\r\n\t\t\"client.session.idle.timeout\": \"2592000\"\r\n\t},\r\n\t\"authenticationFlowBindingOverrides\": {},\r\n\t\"fullScopeAllowed\": true,\r\n\t\"nodeReRegistrationTimeout\": -1,\r\n\t\"protocolMappers\": [\r\n\t\t{\r\n\t\t\t\"id\": \"6a0f1669-b890-4648-8f6c-df7badc06e98\",\r\n\t\t\t\"name\": \"Client IP Address\",\r\n\t\t\t\"protocol\": \"openid-connect\",\r\n\t\t\t\"protocolMapper\": \"oidc-usersessionmodel-note-mapper\",\r\n\t\t\t\"consentRequired\": false,\r\n\t\t\t\"config\": {\r\n\t\t\t\t\"user.session.note\": \"clientAddress\",\r\n\t\t\t\t\"introspection.token.claim\": \"true\",\r\n\t\t\t\t\"id.token.claim\": \"true\",\r\n\t\t\t\t\"access.token.claim\": \"true\",\r\n\t\t\t\t\"claim.name\": \"clientAddress\",\r\n\t\t\t\t\"jsonType.label\": \"String\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"2c0651d6-989d-4710-b59f-2a9c0ca252cd\",\r\n\t\t\t\"name\": \"Client ID\",\r\n\t\t\t\"protocol\": \"openid-connect\",\r\n\t\t\t\"protocolMapper\": \"oidc-usersessionmodel-note-mapper\",\r\n\t\t\t\"consentRequired\": false,\r\n\t\t\t\"config\": {\r\n\t\t\t\t\"user.session.note\": \"client_id\",\r\n\t\t\t\t\"introspection.token.claim\": \"true\",\r\n\t\t\t\t\"id.token.claim\": \"true\",\r\n\t\t\t\t\"access.token.claim\": \"true\",\r\n\t\t\t\t\"claim.name\": \"client_id\",\r\n\t\t\t\t\"jsonType.label\": \"String\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": \"fe324350-4bfd-43a0-96f3-9105e5f6c74c\",\r\n\t\t\t\"name\": \"Client Host\",\r\n\t\t\t\"protocol\": \"openid-connect\",\r\n\t\t\t\"protocolMapper\": \"oidc-usersessionmodel-note-mapper\",\r\n\t\t\t\"consentRequired\": false,\r\n\t\t\t\"config\": {\r\n\t\t\t\t\"user.session.note\": \"clientHost\",\r\n\t\t\t\t\"introspection.token.claim\": \"true\",\r\n\t\t\t\t\"id.token.claim\": \"true\",\r\n\t\t\t\t\"access.token.claim\": \"true\",\r\n\t\t\t\t\"claim.name\": \"clientHost\",\r\n\t\t\t\t\"jsonType.label\": \"String\"\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"defaultClientScopes\": [\r\n\t\t\"web-origins\",\r\n\t\t\"acr\",\r\n\t\t\"profile\",\r\n\t\t\"roles\",\r\n\t\t\"email\"\r\n\t],\r\n\t\"optionalClientScopes\": [\r\n\t\t\"address\",\r\n\t\t\"phone\",\r\n\t\t\"offline_access\",\r\n\t\t\"microprofile-jwt\"\r\n\t],\r\n\t\"access\": {\r\n\t\t\"view\": true,\r\n\t\t\"configure\": true,\r\n\t\t\"manage\": true\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Client",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"secret\": \"{{client_secret}}\"\r\n\t\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Drop Client",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"secret\": \"{{client_secret}}\"\r\n\t\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "exchange scope",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/scope?permission=false&name=token-exchange",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"scope"
+									],
+									"query": [
+										{
+											"key": "permission",
+											"value": "false"
+										},
+										{
+											"key": "name",
+											"value": "token-exchange"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exchange policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/policy",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"policy"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "token-exchange-Request%20hepzibha.faustina%2Bstd%40aridhia.com%20-%20adminproj3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Client reosurces",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/resource",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"resource"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Client permissions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/permission",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Client policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{KC_ADMIN_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/authz/resource-server/policy",
+									"host": [
+										"{{base_kc_url}}"
+									],
+									"path": [
+										"admin",
+										"realms",
+										"{{realm}}",
+										"clients",
+										"{{client_id}}",
+										"authz",
+										"resource-server",
+										"policy"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Prot mappers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{KC_ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/evaluate-scopes/protocol-mappers",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"admin",
+								"realms",
+								"{{realm}}",
+								"clients",
+								"{{client_id}}",
+								"evaluate-scopes",
+								"protocol-mappers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Protocol Mappers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{KC_ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/protocol-mappers/models",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"admin",
+								"realms",
+								"{{realm}}",
+								"clients",
+								"{{client_id}}",
+								"protocol-mappers",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Protocol Mappers Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{KC_ADMIN_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Custom Mapper\",\r\n\t\"protocol\": \"openid-connect\",\r\n\t\"protocolMapper\": \"oidc-lucky-number-mapper\",\r\n\t\"config\": {\r\n\t\t\"id.token.claim\": \"true\",\r\n\t\t\"access.token.claim\": \"true\",\r\n\t\t\"claim.name\": \"test.value\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_kc_url}}/admin/realms/{{realm}}/clients/{{client_id}}/protocol-mappers/models",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"admin",
+								"realms",
+								"{{realm}}",
+								"clients",
+								"{{client_id}}",
+								"protocol-mappers",
+								"models"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{KC_ADMIN_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin token - admin-cli",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"set the admin token\", () => {\r",
+							"    pm.environment.set(\"KC_ADMIN_TOKEN\", pm.response.json()[\"access_token\"])\r",
+							"    pm.environment.set(\"KC_ADMIN_REFRESH_TOKEN\", pm.response.json()[\"refresh_token\"])\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{admin_username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{admin_pass}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"set the admin token\", () => {\r",
+							"    pm.environment.set(\"KC_ADMIN_TOKEN\", pm.response.json()[\"access_token\"])\r",
+							"    pm.environment.set(\"KC_ADMIN_REFRESH_TOKEN\", pm.response.json()[\"refresh_token\"])\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{admin_username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{admin_pass}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"set the fair KC token\", () => {\r",
+							"    pm.environment.set(\"KC_USER_TOKEN\", pm.response.json()[\"access_token\"])\r",
+							"    pm.environment.set(\"KC_USER_REFRESH_TOKEN\", pm.response.json()[\"refresh_token\"])\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "fair",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "{{fair_password}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "riccardo.casula@aridhia.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Idp Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"set the fair KC token\", () => {\r",
+							"    pm.environment.set(\"KC_USER_TOKEN\", pm.response.json()[\"access_token\"])\r",
+							"    pm.environment.set(\"KC_USER_REFRESH_TOKEN\", pm.response.json()[\"refresh_token\"])\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "global",
+							"description": "original source",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "urn:ietf:params:oauth:grant-type:token-exchange",
+							"type": "text"
+						},
+						{
+							"key": "subject_token",
+							"value": "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",
+							"type": "text"
+						},
+						{
+							"key": "subject_issuer",
+							"value": "github",
+							"type": "text"
+						},
+						{
+							"key": "requested_token_type",
+							"value": "urn:ietf:params:oauth:token-type:refresh_token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "requested_token_type",
+							"value": "urn:ietf:params:oauth:token-type:access_token",
+							"type": "text"
+						},
+						{
+							"key": "audience",
+							"value": "global",
+							"description": "target client",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access from Refresh",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"//pm.environment.set(\"KC_ADMIN_TOKEN\", jsonData[\"access_token\"]);\r",
+							"pm.environment.set(\"KC_USER_TOKEN\", jsonData[\"access_token\"]);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{dar_client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{KC_USER_REFRESH_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{KC_ADMIN_REFRESH_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{KC_USER_REFRESH_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{user_token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Impersonate user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"set the admin token\", () => {\r",
+							"    pm.environment.set(\"KC_USER_TOKEN\", pm.response.json()[\"access_token\"])\r",
+							"    pm.environment.set(\"KC_USER_REFRESH_TOKEN\", pm.response.json()[\"refresh_token\"])\r",
+							"    pm.environment.set(\"user_token\", pm.response.json()[\"refresh_token\"])\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "urn:ietf:params:oauth:grant-type:token-exchange",
+							"type": "text"
+						},
+						{
+							"key": "requested_token_type",
+							"value": "urn:ietf:params:oauth:token-type:refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "subject_token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "text"
+						},
+						{
+							"key": "requested_subject",
+							"value": "{{user_id}}",
+							"type": "text"
+						},
+						{
+							"key": "audience",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "audience",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{dar_client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Introspect",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{KC_USER_TOKEN}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{dar_client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token",
+						"introspect"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Introspect",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{KC_USER_TOKEN}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{dar_client}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{dar_client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"realms",
+								"{{realm}}",
+								"protocol",
+								"openid-connect",
+								"token",
+								"introspect"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-length",
+							"value": "883"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exp\": 1707835424,\n    \"iat\": 1707835124,\n    \"jti\": \"8f750697-18bd-4d65-b9c9-5152f2b84075\",\n    \"iss\": \"http://localhost:33053/realms/FederatedNode\",\n    \"aud\": [\n        \"account\",\n        \"global\"\n    ],\n    \"sub\": \"08286f50-9405-499a-b9e0-04087df80855\",\n    \"typ\": \"Bearer\",\n    \"azp\": \"Request heinz@tweest.com - International co-op\",\n    \"session_state\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"preferred_username\": \"heinz@tweest.com\",\n    \"email\": \"heinz@tweest.com\",\n    \"email_verified\": false,\n    \"acr\": \"1\",\n    \"allowed-origins\": [\n        \"http://localhost:33053\"\n    ],\n    \"realm_access\": {\n        \"roles\": [\n            \"offline_access\",\n            \"default-roles-federatednode\",\n            \"uma_authorization\"\n        ]\n    },\n    \"resource_access\": {\n        \"account\": {\n            \"roles\": [\n                \"manage-account\",\n                \"manage-account-links\",\n                \"view-profile\"\n            ]\n        }\n    },\n    \"scope\": \"email profile\",\n    \"sid\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"client_id\": \"Request heinz@tweest.com - International co-op\",\n    \"username\": \"heinz@tweest.com\",\n    \"act\": {\n        \"sub\": \"admin\"\n    },\n    \"token_type\": \"Bearer\",\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "global",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{client_secret}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{dar_client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token",
+						"introspect"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Introspect",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{KC_USER_TOKEN}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{dar_client}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{dar_client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"realms",
+								"{{realm}}",
+								"protocol",
+								"openid-connect",
+								"token",
+								"introspect"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-length",
+							"value": "883"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exp\": 1707835424,\n    \"iat\": 1707835124,\n    \"jti\": \"8f750697-18bd-4d65-b9c9-5152f2b84075\",\n    \"iss\": \"http://localhost:33053/realms/FederatedNode\",\n    \"aud\": [\n        \"account\",\n        \"global\"\n    ],\n    \"sub\": \"08286f50-9405-499a-b9e0-04087df80855\",\n    \"typ\": \"Bearer\",\n    \"azp\": \"Request heinz@tweest.com - International co-op\",\n    \"session_state\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"preferred_username\": \"heinz@tweest.com\",\n    \"email\": \"heinz@tweest.com\",\n    \"email_verified\": false,\n    \"acr\": \"1\",\n    \"allowed-origins\": [\n        \"http://localhost:33053\"\n    ],\n    \"realm_access\": {\n        \"roles\": [\n            \"offline_access\",\n            \"default-roles-federatednode\",\n            \"uma_authorization\"\n        ]\n    },\n    \"resource_access\": {\n        \"account\": {\n            \"roles\": [\n                \"manage-account\",\n                \"manage-account-links\",\n                \"view-profile\"\n            ]\n        }\n    },\n    \"scope\": \"email profile\",\n    \"sid\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"client_id\": \"Request heinz@tweest.com - International co-op\",\n    \"username\": \"heinz@tweest.com\",\n    \"act\": {\n        \"sub\": \"admin\"\n    },\n    \"token_type\": \"Bearer\",\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Userinfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{KC_USER_TOKEN}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{dar_client}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{dar_client_secret}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "global",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/userinfo",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Introspect",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{KC_USER_TOKEN}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{dar_client}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{dar_client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_kc_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+							"host": [
+								"{{base_kc_url}}"
+							],
+							"path": [
+								"realms",
+								"{{realm}}",
+								"protocol",
+								"openid-connect",
+								"token",
+								"introspect"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-length",
+							"value": "883"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"exp\": 1707835424,\n    \"iat\": 1707835124,\n    \"jti\": \"8f750697-18bd-4d65-b9c9-5152f2b84075\",\n    \"iss\": \"http://localhost:33053/realms/FederatedNode\",\n    \"aud\": [\n        \"account\",\n        \"global\"\n    ],\n    \"sub\": \"08286f50-9405-499a-b9e0-04087df80855\",\n    \"typ\": \"Bearer\",\n    \"azp\": \"Request heinz@tweest.com - International co-op\",\n    \"session_state\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"preferred_username\": \"heinz@tweest.com\",\n    \"email\": \"heinz@tweest.com\",\n    \"email_verified\": false,\n    \"acr\": \"1\",\n    \"allowed-origins\": [\n        \"http://localhost:33053\"\n    ],\n    \"realm_access\": {\n        \"roles\": [\n            \"offline_access\",\n            \"default-roles-federatednode\",\n            \"uma_authorization\"\n        ]\n    },\n    \"resource_access\": {\n        \"account\": {\n            \"roles\": [\n                \"manage-account\",\n                \"manage-account-links\",\n                \"view-profile\"\n            ]\n        }\n    },\n    \"scope\": \"email profile\",\n    \"sid\": \"3ff4ef72-6acb-4984-bbd7-2cb025d0ea40\",\n    \"client_id\": \"Request heinz@tweest.com - International co-op\",\n    \"username\": \"heinz@tweest.com\",\n    \"act\": {\n        \"sub\": \"admin\"\n    },\n    \"token_type\": \"Bearer\",\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "All endpoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_kc_url}}/realms/{{realm}}/.well-known/openid-configuration",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						".well-known",
+						"openid-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List idp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_kc_url}}/admin/realms/{{realm}}/identity-provider/instances",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"{{realm}}",
+						"identity-provider",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IdP",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"config\": {\r\n            \"clientId\": \"GITHUB_CLIENTID\",\r\n            \"clientSecret\": \"GITHUB_SECRET\",\r\n            \"guiOrder\":\"\",\r\n            \"baseUrl\":\"\",\r\n            \"apiUrl\":\"\"\r\n        },\r\n        \"providerId\": \"github\",\r\n        \"alias\": \"Aridhia-Open-Source-PHEMS_federated_node\",\r\n\t\t\"enabled\": true,\r\n\t\t\"updateProfileFirstLoginMode\": \"on\",\r\n\t\t\"trustEmail\": false,\r\n\t\t\"storeToken\": false,\r\n\t\t\"addReadTokenRoleOnCreate\": false,\r\n\t\t\"authenticateByDefault\": false,\r\n\t\t\"linkOnly\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_kc_url}}/admin/realms/{{realm}}/identity-provider/instances",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"{{realm}}",
+						"identity-provider",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IdP mappers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{KC_ADMIN_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_kc_url}}/admin/realms/{{realm}}/identity-provider/instances/github/mappers/",
+					"host": [
+						"{{base_kc_url}}"
+					],
+					"path": [
+						"admin",
+						"realms",
+						"{{realm}}",
+						"identity-provider",
+						"instances",
+						"github",
+						"mappers",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
