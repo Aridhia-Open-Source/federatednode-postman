@@ -1334,7 +1334,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
+													"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\",\r\n\t\t\t\"field_name\": \"first_name\"\r\n\t\t}\r\n\t]\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1441,7 +1441,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
+													"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\",\r\n\t\t\t\"field_name\": \"first_name\"\r\n\t\t}\r\n\t]\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -2386,7 +2386,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"name\": \"testing21177\",\r\n\t\"host\": \"http://testdb71\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
+									"raw": "{\r\n\t\"name\": \"testing21177\",\r\n\t\"host\": \"http://testdb71\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"First name\",\r\n\t\t\t\"field_name\": \"first_name\"\r\n\t\t}\r\n\t]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2412,7 +2412,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
+											"raw": "{\r\n\t\"name\": \"testing21\",\r\n\t\"host\": \"http://testdb\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Car's model\",\r\n\t\t\t\"field_name\": \"model\"\r\n\t\t}\r\n\t]\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
