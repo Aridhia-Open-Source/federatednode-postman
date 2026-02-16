@@ -1,2465 +1,791 @@
 {
 	"info": {
+		"_postman_id": "c0c9cdd3-79ef-4a16-8907-2ce2008d5c16",
 		"name": "FN",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51343740",
+		"_collection_link": "https://riccardo-aridhia-8255461.postman.co/workspace/Riccardo-Casula's-Workspace~1caa2cde-4e4b-4893-8b68-a2182c9c89e4/collection/51343740-c0c9cdd3-79ef-4a16-8907-2ce2008d5c16?action=share&source=collection_link&creator=51343740"
 	},
 	"item": [
 		{
-			"name": "FN",
+			"name": "Images",
 			"item": [
 				{
-					"name": "Datasets",
-					"item": [
-						{
-							"name": "Admin",
-							"item": [
+					"name": "List images",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
 								{
-									"name": "Id",
-									"item": [
-										{
-											"name": "Admin - datasets Id",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - Edit datasets name",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "PATCH",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n\t\"extra_connection_args\": \"\"\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{base_url}}/datasets/1",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"1"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets Id catalogue",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/catalogue",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"catalogue"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets Id dictionary",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"dictionaries"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets Id dictionary table",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries/{{table_name}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"dictionaries",
-														"{{table_name}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Dataset-containers",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/containers",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"containers"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Dataset-containers",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/containers/*",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"containers",
-														"*"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Create Dataset-containers",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n\t\"ids\": [\"*\"]\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/containers",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"containers"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - Delete datasets name",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "DELETE",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\"extra_connection_args\": \"DSN=FREE\"}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{base_url}}/datasets/4",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"4"
-													]
-												}
-											},
-											"response": []
-										}
-									]
-								},
-								{
-									"name": "Name",
-									"item": [
-										{
-											"name": "Admin - datasets name",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{admin_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_name}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_name}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - Edit datasets name",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "PATCH",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n\t\"name\": \"FREE\"\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{base_url}}/datasets/{{ _.dbname }}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{ _.dbname }}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets name catalogue",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{admin_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/catalogue",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"catalogue"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets name dictionary",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{admin_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"dictionaries"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Admin - datasets name dictionary table",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{admin_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries/{{table_name}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"dictionaries",
-														"{{table_name}}"
-													]
-												}
-											},
-											"response": []
-										}
-									]
-								},
-								{
-									"name": "Admin - Datasets list",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/datasets",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets"
-											],
-											"query": [
-												{
-													"key": "per_page",
-													"value": "2",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create dataset",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        pm.environment.set('dataset_id', jsonData['dataset_id']);",
-													"    });",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"name\": \"testing21\",\n\t\"host\": \"testpostgres.{{db_namespace}}.svc.cluster.local\",\n\t\"port\": 5432,\n\t\"username\": \"user\",\n\t\"password\": \"password1\",\n\t\"type\": \"postgres\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Token Transfer",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    var jsonData = pm.response.json();",
-													"    pm.environment.set('user_token', jsonData['token']);",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"title\": \"Test DAR\",\n\t\"project_name\": \"{{_['project_name']}}\",\n\t\"requested_by\": {\n\t\t\"email\": \"riccardo.casula@aridhia.com\"\n\t},\n\t\"description\": \"testing more projects. A secret one!\",\n\t\"proj_start\": \"2025-10-23\",\n\t\"proj_end\": \"2026-02-21\",\n\t\"dataset_id\": 1\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/datasets/token_transfer",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												"token_transfer"
-											]
-										}
-									},
-									"response": []
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
 								}
-							],
-							"description": "Dataset-related endpoints using the admin token obtained via the login endpoint",
-							"auth": {
-								"type": "bearer",
-								"bearer": [
-									{
-										"key": "token",
-										"value": "{{admin_token}}",
-										"type": "string"
-									}
-								]
-							}
+							]
 						},
-						{
-							"name": "User",
-							"item": [
-								{
-									"name": "Id",
-									"item": [
-										{
-											"name": "User - datasets Id catalogue",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/catalogue",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"catalogue"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets Id",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets Id dictionary",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"dictionaries"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets Id dictionary table",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries/{{table_name}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dataset_id}}",
-														"dictionaries",
-														"{{table_name}}"
-													]
-												}
-											},
-											"response": []
-										}
-									]
-								},
-								{
-									"name": "Name",
-									"item": [
-										{
-											"name": "User - datasets name",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets name catalogue",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/catalogue",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"catalogue"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets name dictionary",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"dictionaries"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "User - datasets name dictionary table",
-											"protocolProfileBehavior": {
-												"followRedirects": true,
-												"disableUrlEncoding": false,
-												"disableCookies": false
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "project-name",
-														"value": "{{project_name}}"
-													}
-												],
-												"url": {
-													"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries/{{table_name}}",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"datasets",
-														"{{dbname}}",
-														"dictionaries",
-														"{{table_name}}"
-													]
-												}
-											},
-											"response": []
-										}
-									]
-								},
-								{
-									"name": "User - datasets",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        pm.environment.set('dataset_id', jsonData['dataset_id']);",
-													"    });",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{user_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n\t\"name\": \"testing21177\",\r\n\t\"host\": \"http://testdb71\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "User - Datasets list",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{user_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/datasets",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets"
-											]
-										}
-									},
-									"response": []
-								}
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/containers?name=rtest",
+							"host": [
+								"{{base_url}}"
 							],
-							"description": "Dataset-related endpoints using the user token obtained via the DAR approval",
-							"auth": {
-								"type": "bearer",
-								"bearer": [
-									{
-										"key": "token",
-										"value": "{{user_token}}",
-										"type": "string"
-									}
-								]
-							}
+							"path": [
+								"containers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "rtest"
+								}
+							]
 						}
-					],
-					"description": "Dataset-related endpoints, divided by admin and normal users. The only difference is the token used (admin_token and user_token) which are automatically set by General -> Admin login and General -> Login"
+					},
+					"response": []
 				},
 				{
-					"name": "General",
-					"item": [
-						{
-							"name": "Health Check",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/health_check",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"health_check"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Docs",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/docs",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"docs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Audit",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/audit?event_time__gte=2025-11-18T00:00:00.000Z&page=1",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"audit"
-									],
-									"query": [
-										{
-											"key": "event_time__gte",
-											"value": "2025-11-18T00:00:00.000Z"
-										},
-										{
-											"key": "page",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Beacon",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"query\": \"SELECT TOP 10 * FROM cdm.PERSON;\",\r\n\t\"dataset_id\": {{dataset_id}}\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/datasets/selection/beacon",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"datasets",
-										"selection",
-										"beacon"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "User Login",
-							"event": [
+					"name": "Image by id",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
 								{
-									"listen": "prerequest",
-									"script": {
-										"type": "text/javascript",
-										"exec": []
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"pm.test('afterResponse', function () {",
-											"    pm.test('Successful POST request', function () {",
-											"        pm.expect(pm.response.code).to.be.oneOf([",
-											"            201,",
-											"            200",
-											"        ]);",
-											"        var jsonData = pm.response.json();",
-											"        pm.environment.set('user_token', jsonData['token']);",
-											"    });",
-											"});"
-										]
-									}
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
 								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/containers/{{image_id}}",
+							"host": [
+								"{{base_url}}"
 							],
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "username",
-											"value": "fair",
-											"disabled": true
-										},
-										{
-											"key": "password",
-											"value": "{{fair_password}}",
-											"disabled": true
-										},
-										{
-											"key": "password",
-											"value": "{{user_pass}}"
-										},
-										{
-											"key": "username",
-											"value": "{{user_name}}"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{base_url}}/login",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Login Admin",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"type": "text/javascript",
-										"exec": []
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"pm.test('afterResponse', function () {",
-											"    pm.expect(pm.response.code).to.be.oneOf([",
-											"        201,",
-											"        200",
-											"    ]);",
-											"    var jsonData = pm.response.json();",
-											"    pm.environment.set('admin_token', jsonData.token);",
-											"    pm.environment.set('KC_ADMIN_REFRESH_TOKEN', jsonData.token);",
-											"});"
-										]
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
-									}
-								],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "username",
-											"value": "{{admin_username}}"
-										},
-										{
-											"key": "password",
-											"value": "{{ _.admin_pass }}"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{base_url}}/login",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Delivery Secret",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"auth\": \"test\"}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/delivery-secret",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"delivery-secret"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Refresh Token - Admin",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "User-Agent",
-										"value": "insomnia/11.1.0"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/refresh_token",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"refresh_token"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Refresh Token - User",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{ _.user_token }}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "User-Agent",
-										"value": "insomnia/11.1.0"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/refresh_token",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"refresh_token"
-									]
-								}
-							},
-							"response": []
+							"path": [
+								"containers",
+								"{{image_id}}"
+							]
 						}
-					],
-					"description": "This is the starting point for interacting with the FN. Needs to have\n\n``` bash\nkubectl port-forward -n federated-nginx svc/ingress-nginx-controller 443\n\n ```\n\nto run on a terminal. You can set `base_url` env var to set the url root",
-					"auth": {
-						"type": "bearer",
-						"bearer": [
+					},
+					"response": []
+				},
+				{
+					"name": "Add image",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
 							{
-								"key": "token",
-								"value": "{{admin_token}}",
-								"type": "string"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
-						]
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"rtest\",\n\t\"registry\": \"ghcr.io/aridhia-open-source\",\n\t\"tag\": \"3.5\",\n\t\"ml\": true,\n\t\"dashboard\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/containers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"containers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit image",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ml\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/containers/{{image_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"containers",
+								"{{image_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sync images",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/containers/sync",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"containers",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('afterResponse', function () {",
+									"    var jsonData = pm.response.json();",
+									"    if (pm.response.code < 300) {",
+									"        pm.environment.set('user_name', jsonData.username);",
+									"        pm.environment.set('user_temp_pass', jsonData.tempPassword);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"role\": \"Administrator\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset temp pass",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"{{user_name}}\",\n\t\"tempPassword\": \"{{user_temp_pass}}\",\n\t\"newPassword\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{admin_token}}",
+						"type": "string"
 					}
-				},
+				]
+			}
+		},
+		{
+			"name": "General",
+			"item": [
 				{
-					"name": "Images",
-					"item": [
-						{
-							"name": "List images",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/containers?page=8&per_page=100&name=rtest",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"containers"
-									],
-									"query": [
-										{
-											"key": "page",
-											"value": "8"
-										},
-										{
-											"key": "per_page",
-											"value": "100"
-										},
-										{
-											"key": "name",
-											"value": "rtest"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Add image",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"name\": \"rtest\",\n\t\"registry\": \"ghcr.io/aridhia-open-source\",\n\t\"tag\": \"3.0-dev\",\n\t\"sha\": \"\",\n\t\"ml\": true,\n\t\"dashboard\": true\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/containers",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"containers"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Image by id",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/containers/{{image_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"containers",
-										"{{image_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Edit image",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"ml\": true\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/containers/{{image_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"containers",
-										"{{image_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Sync images",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/containers/sync",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"containers",
-										"sync"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Registries",
-					"item": [
-						{
-							"name": "Get registries",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/registries",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Add registry",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('afterResponse', function () {",
-											"    var jsonData = pm.response.json();",
-											"    if (jsonData.id)",
-											"        pm.environment.set('registry_id', jsonData.id);",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								}
+					"name": "Health Check",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health_check",
+							"host": [
+								"{{base_url}}"
 							],
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"url\": \"\",\n\t\"password\": \"\",\n\t\"username\": \"\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/registries",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Add inactive registry",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"url\": \"ghcr.io/invalidone\",\r\n\t\"password\": \"passw\",\r\n\t\"username\": \"user\",\r\n\t\"active\": false\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/registries",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get registries by ID",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/registries/{{registry_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries",
-										"{{registry_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete registries by ID",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/registries/{{registry_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries",
-										"{{registry_id}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Patch registry by ID",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"active\": false\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/registries/{{registry_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"registries",
-										"{{registry_id}}"
-									]
-								}
-							},
-							"response": []
+							"path": [
+								"health_check"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Tasks",
-					"item": [
-						{
-							"name": "Admin",
-							"item": [
+					"name": "Audit",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
 								{
-									"name": "Create task",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        if (jsonData['task_id'])",
-													"            pm.environment.set('task_id', jsonData['task_id']);",
-													"    });",
-													"});"
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"name\": \"analysis-new\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": {{docker_image}},\n\t\t\t\"env\": {\n\t\t\t\t\"INPUT_PATH\": \"/data/something/file.csv\"\n\t\t\t}\n\t\t}\n\t],\n\t\"resources\": {\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"inputs\": {\"file.csv\": \"/data/something\"},\n\t\"description\": \"First task ever!\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/tasks/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Task results",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}/results",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}",
-												"results"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Approve task results",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}/results/approve",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}",
-												"results",
-												"approve"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Block task results",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}/results/block",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}",
-												"results",
-												"block"
-											]
-										}
-									},
-									"response": []
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
 								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/audit?page=1&endpoint=/datasets/token_transfer",
+							"host": [
+								"{{base_url}}"
 							],
-							"auth": {
-								"type": "bearer",
-								"bearer": [
-									{
-										"key": "token",
-										"value": "{{admin_token}}",
-										"type": "string"
-									}
-								]
+							"path": [
+								"audit"
+							],
+							"query": [
+								{
+									"key": "event_time__gte",
+									"value": "2026-01-05T00:00:00.000Z",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "endpoint",
+									"value": "/datasets/token_transfer"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Docs",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Beacon",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": \"SELECT * FROM carspeed;\",\n\t\"dataset_id\": {{ dataset_id }}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/datasets/selection/beacon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"datasets",
+								"selection",
+								"beacon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
 							}
 						},
 						{
-							"name": "Users",
-							"item": [
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test('afterResponse', function () {",
+									"    pm.test('Successful POST request', function () {",
+									"        pm.expect(pm.response.code).to.be.oneOf([",
+									"            201,",
+									"            200",
+									"        ]);",
+									"        var jsonData = pm.response.json();",
+									"        pm.environment.set('user_token', jsonData['token']);",
+									"    });",
+									"});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
-									"name": "Create task",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        if (jsonData['task_id'])",
-													"            pm.environment.set('task_id', jsonData['task_id']);",
-													"    });",
-													"});"
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "project-name",
-												"value": "project1"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"name\": \"analysis-new\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": {{docker_image}},\n\t\t\t\"env\": {\n\t\t\t\t\"INPUT_PATH\": \"/data/something/file.csv\"\n\t\t\t}\n\t\t}\n\t],\n\t\"resources\": {\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"inputs\": {\"file.csv\": \"/data/something\"},\n\t\"description\": \"First task ever!\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/tasks/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												""
-											]
-										}
-									},
-									"response": []
+									"key": "username",
+									"value": "fair",
+									"disabled": true
 								},
 								{
-									"name": "Task results - User",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{ _.user_token }}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}/results",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}",
-												"results"
-											]
-										}
-									},
-									"response": []
+									"key": "password",
+									"value": "{{fair_password}}",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "xI2FfHsLzYMw3LqPej9dMBz5"
+								},
+								{
+									"key": "username",
+									"value": "controller@fn.com"
 								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
 							],
-							"auth": {
-								"type": "bearer",
-								"bearer": [
-									{
-										"key": "token",
-										"value": "{{user_token}}",
-										"type": "string"
-									}
-								]
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
 							}
 						},
 						{
-							"name": "Service info",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{_['base_url']}}/tasks/service-info",
-									"host": [
-										"{{_['base_url']}}"
-									],
-									"path": [
-										"tasks",
-										"service-info"
-									]
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test('afterResponse', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([",
+									"        201,",
+									"        200",
+									"    ]);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set('admin_token', jsonData.token);",
+									"    pm.environment.set('KC_ADMIN_REFRESH_TOKEN', jsonData.token);",
+									"});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "All tasks",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{admin_username}}"
 								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/tasks/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"tasks",
-										""
-									],
-									"query": [
-										{
-											"key": "id__gte",
-											"value": "1",
-											"disabled": true
-										},
-										{
-											"key": "page",
-											"value": "2",
-											"disabled": true
-										}
-									]
+								{
+									"key": "password",
+									"value": "{{ _.admin_pass }}"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Validate task",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"name\": \"Test Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{docker_image}}\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{dataset_id}},\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"inputs\":{},\r\n\t\"outputs\":{},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"100Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/tasks/validate",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"tasks",
-										"validate"
-									]
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Delivery Secret",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
-						{
-							"name": "Task by  id",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/tasks/{{task_id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"tasks",
-										"{{task_id}}"
-									]
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"auth\": \"\"}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "Task logs",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/tasks/{{ _.task_id }}/logs",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"tasks",
-										"{{ _.task_id }}",
-										"logs"
-									]
+						"url": {
+							"raw": "{{base_url}}/delivery-secret",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"delivery-secret"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token - Admin",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/11.1.0"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/refresh_token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"refresh_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token - User",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ _.user_token }}",
+									"type": "string"
 								}
-							},
-							"response": []
+							]
 						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/11.1.0"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/refresh_token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"refresh_token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This is the starting point for interacting with the FN. Needs to have\n\n``` bash\nkubectl port-forward -n federated-nginx svc/ingress-nginx-controller 443\n\n ```\n\nto run on a terminal. You can set `base_url` env var to set the url root",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{admin_token}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
 						{
-							"name": "Cancel task",
+							"name": "Create task",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -2479,16 +805,385 @@
 											"            201,",
 											"            202",
 											"        ]);",
-											"        pm.test('Your test name', function () {",
-											"            var jsonData = pm.response.json();",
-											"            pm.expect(jsonData.value).to.eql(100);",
-											"        });",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
 											"    });",
 											"});"
 										]
 									}
 								}
 							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"kerberos-task2804\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"ghcr.io/aridhia-open-source/rtest:3.0-dev\",\n\t\t\t\"env\": {\n\t\t\t\t\"INPUT_PATH\": \"/data/something/file.csv\"\n\t\t\t}\n\t\t}\n\t],\n\t\"tags\": {\n\t\t\"dataset_id\": 1\n\t},\n\t\"db_query\": {\n\t\t\"query\": \"SELECT * FROM carspeed;\",\n\t\t\"dialect\": \"postgres\"\n\t},\n\t\"resources\": {\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"inputs\": {\"file.csv\": \"/data/something\"},\n\t\"volumes\": {},\n\t\"description\": \"First task ever!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task no db handler",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Connection task test\",\n\t\"executors\": [{\"image\": \"{{ _.task_image }}\"}],\n\t\"tags\": {\n\t\t\"dataset_id\": {{ _.dataset_id }}\n\t},\n\t\"resources\": {\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"outputs\": {\n\t\t\"results\": \"/app/results\"\n\t},\n\t\"volumes\": {},\n\t\"description\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task with Delivery",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Access-Control-Request-Method",
+										"value": "*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"MS Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{_['docker_image']}}\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{_['dataset_id']}}\r\n\t},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"200Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"deliver_to\": {\r\n\t\t\"other\": {\r\n\t\t\t\"url\": \"https://federation-test.uksouth.tre.aridhia.io\",\r\n\t\t\t\"auth_type\": \"AzCopy\"\r\n\t\t}\r\n\t},\r\n\t\"description\": \"First task ever!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task list pack",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Test\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"{{_['docker_image']}}\",\n\t\t\t\"command\": [\n\t\t\t\t\"R\",\n\t\t\t\t\"-e\",\n\t\t\t\t\"df <- as.data.frame(installed.packages())[,c('Package', 'Version')];write.csv(df, file='/mnt/data/packages.csv', row.names=FALSE);\"\n\t\t\t],\n\t\t\t\"env\": {}\n\t\t}\n\t],\n\t\"db_query\": {\n\t\t\"query\": \"SELECT * FROM carspeed\",\n\t\t\"dialect\": \"postgres\"\n\t},\n\t\"tags\": {\n\t\t\"dataset_id\": 7,\n\t\t\"test_tag\": \"some content\"\n\t},\n\t\"inputs\":{},\n\t\"outputs\":{},\n\t\"resources\": {\n\t\t\"limits\": {\n\t\t\t\"cpu\": \"100m\",\n\t\t\t\"memory\": \"100Mi\"\n\t\t},\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"volumes\": {},\n\t\"description\": \"First task ever!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task dataset name",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Access-Control-Request-Method",
+										"value": "*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Test Task\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"aridhia-open-source/rtest:2.5\",\n\t\t\t\"env\": {\n\t\t\t\t\n\t\t\t}\n\t\t}\n\t],\n\t\"tags\": {\n\t\t\"dataset_name\": \"FREE\",\n\t\t\"test_tag\": \"some content\"\n\t},\n\t\"inputs\":{},\n\t\"outputs\":{},\n\t\"resources\": {\n\t\t\"limits\": {\n\t\t\t\"cpu\": \"100m\",\n\t\t\t\"memory\": \"500Mi\"\n\t\t},\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"volumes\": {},\n\t\"description\": \"First task ever!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task use repo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"TestRepo\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"ghcr.io/aridhia-open-source/rtest:2.5\"\n\t\t}\n\t],\n\t\"repository\": \"Aridhia-Open-Source/Federated-Node-Example-App\",\n\t\"inputs\": {\"file.csv\": \"/data/something\"},\n\t\"description\": \"First task ever!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Task results",
 							"protocolProfileBehavior": {
 								"followRedirects": true,
 								"disableUrlEncoding": false,
@@ -2505,51 +1200,24 @@
 										}
 									]
 								},
-								"method": "POST",
+								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tasks/{{task_id}}/cancel",
+									"raw": "{{base_url}}/tasks/{{task_id}}/results",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"tasks",
 										"{{task_id}}",
-										"cancel"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Users",
-					"item": [
-						{
-							"name": "Get users",
-							"protocolProfileBehavior": {
-								"followRedirects": true,
-								"disableUrlEncoding": false,
-								"disableCookies": false
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/users",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"users"
+										"results"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Create User",
+							"name": "Create task sha",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -2564,11 +1232,15 @@
 										"type": "text/javascript",
 										"exec": [
 											"pm.test('afterResponse', function () {",
-											"    var jsonData = pm.response.json();",
-											"    if (pm.response.code < 300) {",
-											"        pm.environment.set('user_name', jsonData.username);",
-											"        pm.environment.set('user_temp_pass', jsonData.tempPassword);",
-											"    }",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
 											"});"
 										]
 									}
@@ -2589,7 +1261,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"email\": \"{{ _.user_name }}\",\n\t\"role\": \"System\"\n}",
+									"raw": "{\n\t\"name\": \"Connection task test\",\n\t\"executors\": [{\"image\": \"rcasula13/rtest@sha256:ef88e489298e589356ec30ff8a7f258ab08196214bcca7ec3277c849bfa6d8ef\"}],\n\t\"tags\": {\n\t\t\"dataset_id\": {{ _.dataset_id }}\n\t},\n\t\"resources\": {\n\t\t\"requests\": {\n\t\t\t\"cpu\": \"0.1\",\n\t\t\t\"memory\": \"50Mi\"\n\t\t}\n\t},\n\t\"volumes\": {},\n\t\"description\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2597,12 +1269,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/users/",
+									"raw": "{{base_url}}/tasks/",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"users",
+										"tasks",
 										""
 									]
 								}
@@ -2610,15 +1282,47 @@
 							"response": []
 						},
 						{
-							"name": "Reset temp pass",
+							"name": "Create CronJob",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
 							"protocolProfileBehavior": {
 								"followRedirects": true,
 								"disableUrlEncoding": false,
 								"disableCookies": false
 							},
 							"request": {
-								"method": "PUT",
+								"method": "POST",
 								"header": [
+									{
+										"key": "project-name",
+										"value": "project1"
+									},
 									{
 										"key": "Content-Type",
 										"value": "application/json"
@@ -2626,7 +1330,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"email\": \"{{user_name}}\",\n\t\"tempPassword\": \"{{user_temp_pass}}\",\n\t\"newPassword\": \"grEP0EmAohSRn4N0doyngCrw\"\n}",
+									"raw": "{\n\t\"name\": \"test-cj\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"ghcr.io/aridhia-open-source/rtest:2.5\"\n\t\t}\n\t],\n\t\"schedule\": \"0 12 * * *\",\n\t\"tags\": {\n\t\t\"dataset_id\": 1\n\t},\n\t\"description\": \"project1\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2634,13 +1338,196 @@
 									}
 								},
 								"url": {
-									"raw": "{{_['base_url']}}/users/reset-password",
+									"raw": "{{base_url}}/tasks/",
 									"host": [
-										"{{_['base_url']}}"
+										"{{base_url}}"
 									],
 									"path": [
-										"users",
-										"reset-password"
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Suspend CronJob",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "project1"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/tasks/3/suspend",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										"3",
+										"suspend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resume CronJob",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "project1"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/tasks/3/resume",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										"3",
+										"resume"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create CronJob Fail",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "project1"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"test-fail-cron\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"ghcr.io/aridhia-open-source/rtest:latest-dev\"\n\t\t}\n\t],\n\t\"schedule\": \"3 9 * * *\",\n\t\"dataset_id\": 1,\n\t\"tags\": {\n\t\t\"dataset_id\": 1\n\t},\n\t\"description\": \"project1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
 									]
 								}
 							},
@@ -2659,732 +1546,1918 @@
 					}
 				},
 				{
-					"name": "Guides",
+					"name": "Users",
 					"item": [
 						{
-							"name": "Run Task path",
-							"item": [
+							"name": "Create task",
+							"event": [
 								{
-									"name": "[0] Login Admin",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([",
-													"        201,",
-													"        200",
-													"    ]);",
-													"    var jsonData = pm.response.json();",
-													"    pm.environment.set('admin_token', jsonData['token']);",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/x-www-form-urlencoded"
-											}
-										],
-										"body": {
-											"mode": "urlencoded",
-											"urlencoded": [
-												{
-													"key": "username",
-													"value": "{{admin_username}}"
-												},
-												{
-													"key": "password",
-													"value": "{{admin_pass}}"
-												}
-											]
-										},
-										"url": {
-											"raw": "{{base_url}}/login",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"login"
-											]
-										}
-									},
-									"response": []
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
 								},
 								{
-									"name": "[1] Datasets list",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[2] datasets Id",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [
-											{
-												"key": "project-name",
-												"value": "{{project_name}}"
-											}
-										],
-										"url": {
-											"raw": "{{base_url}}/datasets/{{dataset_id}}",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												"{{dataset_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[3] Create task",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        if (jsonData['task_id'])",
-													"            pm.environment.set('task_id', jsonData['task_id']);",
-													"    });",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n\t\"name\": \"Test Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{docker_image}}\",\r\n\t\t\t\"command\": \"\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{dataset_id}},\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"inputs\":{},\r\n\t\"outputs\":{},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"100Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/tasks/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[4] Task by id",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[5] Task results",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/tasks/{{task_id}}/results",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tasks",
-												"{{task_id}}",
-												"results"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Create a dataset",
-							"item": [
-								{
-									"name": "[0] Login Admin",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([",
-													"        201,",
-													"        200",
-													"    ]);",
-													"    var jsonData = pm.response.json();",
-													"    pm.environment.set('admin_token', jsonData['token']);",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/x-www-form-urlencoded"
-											}
-										],
-										"body": {
-											"mode": "urlencoded",
-											"urlencoded": [
-												{
-													"key": "username",
-													"value": "{{admin_username}}"
-												},
-												{
-													"key": "password",
-													"value": "{{admin_pass}}"
-												}
-											]
-										},
-										"url": {
-											"raw": "{{base_url}}/login",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"login"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[1] Datasets list",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[2] Create datasets",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.test('Successful POST request', function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([",
-													"            201,",
-													"            202",
-													"        ]);",
-													"        var jsonData = pm.response.json();",
-													"        pm.environment.set('dataset_id', jsonData['dataset_id']);",
-													"    });",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n\t\"name\": \"{{dbname}}\",\r\n\t\"host\": \"{{dbhost}}\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"{{dbuser}}\",\r\n\t\"password\": \"{{dbpass}}\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"cars\",\r\n\t\t\t\"description\": \"Ohh, many cars data\"\r\n\t\t}\r\n\t]\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[3] datasets Id",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [
-											{
-												"key": "project-name",
-												"value": "{{project_name}}"
-											}
-										],
-										"url": {
-											"raw": "{{base_url}}/datasets/{{dataset_id}}",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												"{{dataset_id}}"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "New DAR",
-							"item": [
-								{
-									"name": "[0] Login Admin",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"type": "text/javascript",
-												"exec": []
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"type": "text/javascript",
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    pm.expect(pm.response.code).to.be.oneOf([",
-													"        201,",
-													"        200",
-													"    ]);",
-													"    var jsonData = pm.response.json();",
-													"    pm.environment.set('admin_token', jsonData['token']);",
-													"});"
-												]
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/x-www-form-urlencoded"
-											}
-										],
-										"body": {
-											"mode": "urlencoded",
-											"urlencoded": [
-												{
-													"key": "username",
-													"value": "{{admin_username}}"
-												},
-												{
-													"key": "password",
-													"value": "{{admin_pass}}"
-												}
-											]
-										},
-										"url": {
-											"raw": "{{base_url}}/login",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"login"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[1] Datasets list",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/datasets/",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												""
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[3] datasets Id",
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [
-											{
-												"key": "project-name",
-												"value": "{{project_name}}"
-											}
-										],
-										"url": {
-											"raw": "{{base_url}}/datasets/{{dataset_id}}",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												"{{dataset_id}}"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "[4] Approved DAR",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"pm.test('afterResponse', function () {",
-													"    var jsonData = pm.response.json();",
-													"    pm.environment.set('user_token', jsonData['token']);",
-													"});"
-												],
-												"type": "text/javascript",
-												"packages": {},
-												"requests": {}
-											}
-										}
-									],
-									"protocolProfileBehavior": {
-										"followRedirects": true,
-										"disableUrlEncoding": false,
-										"disableCookies": false
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "{{admin_token}}",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{ \r\n    \"title\": \"controller\",\r\n    \"project_name\": \"project12\",\r\n    \"requested_by\": {\r\n        \"email\": \"riccardo.casula@aridhia.com\"\r\n    },\r\n    \"description\": \"Project is created by admin user for non-admin user\",  \r\n    \"proj_start\": \"2026-01-01\",\r\n    \"proj_end\": \"2026-06-01\",\r\n    \"dataset_id\": {{dataset_id}}\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/datasets/token_transfer",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"datasets",
-												"token_transfer"
-											]
-										}
-									},
-									"response": []
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
 								}
 							],
-							"description": "Process to allow user access to a Dataset"
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "project1"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"test-pre-virt\",\n\t\"executors\": [\n\t\t{\n\t\t\t\"image\": \"aridhia-open-source/rtest:latest-dev\",\n\t\t\t\"env\": {}\n\t\t}\n\t],\n\t\"dataset_id\": null,\n\t\"dataset_name\": null,\n\t\"tags\": {\n\t\t\"dataset_id\": null,\n\t\t\"dataset_name\": null\n\t},\n\t\"inputs\": {},\n\t\"outputs\": {},\n\t\"volumes\": {},\n\t\"description\": \"project1\",\n\t\"task_controller\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task no db handler",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "{{project_name}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Connection task test\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"aridhia-open-source/rtest:3.0-dev\",\r\n\t\t\t\"env\": {\r\n\t\t\t\t\"test\":1\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{_['dataset_id']}},\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"db_query\": {\r\n\t\t\"query\": \"SELECT * FROM carspeed;\",\r\n\t\t\"dialect\": \"postgres\"\r\n\t},\r\n\t\"resources\": {\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task with Delivery",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "{{project_name}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"MS Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{_['docker_image']}}\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{_['dataset_id']}}\r\n\t},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"200Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"deliver_to\": {\r\n\t\t\"other\": {\r\n\t\t\t\"url\": \"https://federation-test.uksouth.tre.aridhia.io\",\r\n\t\t\t\"auth_type\": \"AzCopy\"\r\n\t\t}\r\n\t},\r\n\t\"description\": \"First task ever!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task dataset name",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "{{project_name}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Test Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{docker_image}}\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_name\": \"{{dbname}}\",\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"inputs\":{},\r\n\t\"outputs\":{},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"100Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task list pack",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        if (jsonData['task_id'])",
+											"            pm.environment.set('task_id', jsonData['task_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "{{project_name}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"Test\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{_['docker_image']}}\",\r\n\t\t\t\"command\": [\r\n\t\t\t\t\"R\",\r\n\t\t\t\t\"-e\",\r\n\t\t\t\t\"df <- as.data.frame(installed.packages())[,c('Package', 'Version')];write.csv(df, file='/mnt/data/packages.csv', row.names=FALSE);\"\r\n\t\t\t],\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{_['dataset_id']}},\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"inputs\":{},\r\n\t\"outputs\":{},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"100Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/tasks/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Task results - User",
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ _.user_token }}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tasks/{{task_id}}/results",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tasks",
+										"{{task_id}}",
+										"results"
+									]
+								}
+							},
+							"response": []
 						}
-					]
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{user_token}}",
+								"type": "string"
+							}
+						]
+					}
+				},
+				{
+					"name": "Service info",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{_['base_url']}}/tasks/service-info",
+							"host": [
+								"{{_['base_url']}}"
+							],
+							"path": [
+								"tasks",
+								"service-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All tasks",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/?id__gte=72",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "id__gte",
+									"value": "72"
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task by  id",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task logs",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{ _.task_id }}/logs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{ _.task_id }}",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve task results",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}/results/approve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_id}}",
+								"results",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block task results",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}/results/block",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_id}}",
+								"results",
+								"block"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel task",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test('afterResponse', function () {",
+									"    pm.test('Successful POST request', function () {",
+									"        pm.expect(pm.response.code).to.be.oneOf([",
+									"            201,",
+									"            202",
+									"        ]);",
+									"        pm.test('Your test name', function () {",
+									"            var jsonData = pm.response.json();",
+									"            pm.expect(jsonData.value).to.eql(100);",
+									"        });",
+									"    });",
+									"});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/{{task_id}}/cancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate task",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Test Task\",\r\n\t\"executors\": [\r\n\t\t{\r\n\t\t\t\"image\": \"{{docker_image}}\",\r\n\t\t\t\"env\": {}\r\n\t\t}\r\n\t],\r\n\t\"tags\": {\r\n\t\t\"dataset_id\": {{dataset_id}},\r\n\t\t\"test_tag\": \"some content\"\r\n\t},\r\n\t\"inputs\":{},\r\n\t\"outputs\":{},\r\n\t\"resources\": {\r\n\t\t\"limits\": {\r\n\t\t\t\"cpu\": \"100m\",\r\n\t\t\t\"memory\": \"100Mi\"\r\n\t\t},\r\n\t\t\"requests\": {\r\n\t\t\t\"cpu\": \"0.1\",\r\n\t\t\t\"memory\": \"50Mi\"\r\n\t\t}\r\n\t},\r\n\t\"volumes\": {},\r\n\t\"description\": \"First task ever!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/validate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"validate"
+							]
+						}
+					},
+					"response": []
 				}
 			]
-		}
-	],
-	"variable": [
+		},
 		{
-			"key": "baseURL",
-			"value": "",
-			"type": "default"
+			"name": "Registries",
+			"item": [
+				{
+					"name": "Get registries",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/registries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add registry",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('afterResponse', function () {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.id)",
+									"        pm.environment.set('registry_id', jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"\",\n\t\"password\": \"\",\n\t\"username\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/registries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get registries by ID",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/registries/{{registry_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries",
+								"{{registry_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add inactive registry",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"url\": \"ghcr.io/invalidone\",\r\n\t\"password\": \"passw\",\r\n\t\"username\": \"r-casula\",\r\n\t\"active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/registries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch registry",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/registries/{{registry_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries",
+								"{{registry_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete registries by ID",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/registries/{{ _.registry_id }}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"registries",
+								"{{ _.registry_id }}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Datasets",
+			"item": [
+				{
+					"name": "Admin-token",
+					"item": [
+						{
+							"name": "Id",
+							"item": [
+								{
+									"name": "Admin - datasets Id",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - Edit datasets name",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"schema\": \"cdm\",\n\t\"schema_write\": \"results\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - Delete datasets name",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"extra_connection_args\": \"DSN=FREE\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/datasets/4",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets Id catalogue",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/catalogue",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"catalogue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets Id dictionary",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"dictionaries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets Id dictionary table",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries/{{table_name}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"dictionaries",
+												"{{table_name}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Name",
+							"item": [
+								{
+									"name": "Admin - datasets name",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admin_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_name}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_name}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - Edit datasets name",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"FREE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/datasets/{{ dbname }}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{ dbname }}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets name catalogue",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admin_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/catalogue",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"catalogue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets name dictionary",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admin_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"dictionaries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Admin - datasets name dictionary table",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{admin_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries/{{table_name}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"dictionaries",
+												"{{table_name}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Admin - Datasets list",
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/datasets",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"datasets"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin - Create Dataset",
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "project-name",
+										"value": "{{project_name}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"\",\r\n\t\"host\": \"\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"\",\r\n\t\"password\": \"\",\r\n\t\"repository\": \"\",\r\n\t\"type\": \"postgres\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/datasets",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"datasets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token Transfer",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.environment.set('user_token', jsonData['token']);",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test DAR\",\n\t\"project_name\": \"{{_['project_name']}}\",\n\t\"requested_by\": {\n\t\t\"email\": \"riccardo.casula@aridhia.com\"\n\t},\n\t\"description\": \"testing more projects. A secret one!\",\n\t\"proj_start\": \"2025-10-23\",\n\t\"proj_end\": \"2026-02-21\",\n\t\"dataset_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/datasets/token_transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"datasets",
+										"token_transfer"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Dataset-related endpoints using the admin token obtained via the login endpoint",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{admin_token}}",
+								"type": "string"
+							}
+						]
+					}
+				},
+				{
+					"name": "User-token",
+					"item": [
+						{
+							"name": "Id",
+							"item": [
+								{
+									"name": "User - datasets Id catalogue",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/catalogue",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"catalogue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets Id",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets Id dictionary",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"dictionaries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets Id dictionary table",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dataset_id}}/dictionaries/{{table_name}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dataset_id}}",
+												"dictionaries",
+												"{{table_name}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Name",
+							"item": [
+								{
+									"name": "User - datasets name",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets name catalogue",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/catalogue",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"catalogue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets name dictionary",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"dictionaries"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User - datasets name dictionary table",
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "project-name",
+												"value": "{{project_name}}"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/datasets/{{dbname}}/dictionaries/{{table_name}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"datasets",
+												"{{dbname}}",
+												"dictionaries",
+												"{{table_name}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "User - datasets",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": []
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test('afterResponse', function () {",
+											"    pm.test('Successful POST request', function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([",
+											"            201,",
+											"            202",
+											"        ]);",
+											"        var jsonData = pm.response.json();",
+											"        pm.environment.set('dataset_id', jsonData['dataset_id']);",
+											"    });",
+											"});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"testing21177\",\r\n\t\"host\": \"http://testdb71\",\r\n\t\"port\": 5432,\r\n\t\"username\": \"user\",\r\n\t\"password\": \"password1\",\r\n\t\"catalogue\": {\r\n\t\t\"title\": \"Catalogue 1\",\r\n\t\t\"description\": \"Here is an example of catalogue\"\r\n\t},\r\n\t\"dictionaries\": [\r\n\t\t{\r\n\t\t\t\"table_name\": \"people\",\r\n\t\t\t\"description\": \"Ohh, people data\"\r\n\t\t}\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/datasets/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"datasets",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User - Datasets list",
+							"protocolProfileBehavior": {
+								"followRedirects": true,
+								"disableUrlEncoding": false,
+								"disableCookies": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/datasets",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"datasets"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Dataset-related endpoints using the user token obtained via the DAR approval",
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{user_token}}",
+								"type": "string"
+							}
+						]
+					}
+				}
+			],
+			"description": "Dataset-related endpoints, divided by admin and normal users. The only difference is the token used (admin_token and user_token) which are automatically set by General -> Admin login and General -> Login"
 		}
 	]
 }
