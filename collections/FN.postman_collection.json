@@ -508,14 +508,17 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"exec": [
+									""
+								],
 								"type": "text/javascript",
-								"exec": []
+								"packages": {},
+								"requests": {}
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test('afterResponse', function () {",
 									"    pm.test('Successful POST request', function () {",
@@ -527,7 +530,10 @@
 									"        pm.environment.set('user_token', jsonData['token']);",
 									"    });",
 									"});"
-								]
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -548,22 +554,12 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "username",
-									"value": "fair",
-									"disabled": true
-								},
-								{
 									"key": "password",
-									"value": "{{fair_password}}",
-									"disabled": true
-								},
-								{
-									"key": "password",
-									"value": "xI2FfHsLzYMw3LqPej9dMBz5"
+									"value": ""
 								},
 								{
 									"key": "username",
-									"value": "controller@fn.com"
+									"value": ""
 								}
 							]
 						},
@@ -585,14 +581,17 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"exec": [
+									""
+								],
 								"type": "text/javascript",
-								"exec": []
+								"packages": {},
+								"requests": {}
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test('afterResponse', function () {",
 									"    pm.expect(pm.response.code).to.be.oneOf([",
@@ -603,7 +602,10 @@
 									"    pm.environment.set('admin_token', jsonData.token);",
 									"    pm.environment.set('KC_ADMIN_REFRESH_TOKEN', jsonData.token);",
 									"});"
-								]
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
 							}
 						}
 					],
@@ -639,7 +641,7 @@
 								},
 								{
 									"key": "password",
-									"value": "{{ _.admin_pass }}"
+									"value": "{{ admin_pass }}"
 								}
 							]
 						},
