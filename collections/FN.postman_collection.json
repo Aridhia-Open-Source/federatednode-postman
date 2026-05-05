@@ -118,7 +118,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"rtest\",\n\t\"registry\": \"ghcr.io/aridhia-open-source\",\n\t\"tag\": \"3.5\",\n\t\"ml\": true,\n\t\"dashboard\": true\n}",
+							"raw": "{\n\t\"name\": \"rtest\",\n\t\"registry\": \"ghcr.io/aridhia-open-source\",\n\t\"tag\": \"3.5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -138,7 +138,7 @@
 					"response": []
 				},
 				{
-					"name": "Edit image",
+					"name": "Delete image",
 					"protocolProfileBehavior": {
 						"followRedirects": true,
 						"disableUrlEncoding": false,
@@ -155,22 +155,8 @@
 								}
 							]
 						},
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ml\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+						"method": "DELETE",
+						"header": [],
 						"url": {
 							"raw": "{{base_url}}/containers/{{image_id}}",
 							"host": [
@@ -179,39 +165,6 @@
 							"path": [
 								"containers",
 								"{{image_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Sync images",
-					"protocolProfileBehavior": {
-						"followRedirects": true,
-						"disableUrlEncoding": false,
-						"disableCookies": false
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{admin_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/containers/sync",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"containers",
-								"sync"
 							]
 						}
 					},
